@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Hw5Application {
 
     public static void main(String[] args) {
+
         SpringApplication.run(Hw5Application.class, args);
     }
+
 
 }

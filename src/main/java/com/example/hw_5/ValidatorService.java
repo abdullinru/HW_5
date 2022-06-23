@@ -3,8 +3,8 @@ package com.example.hw_5;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Validator {
-    private static void privateCheck(LoginData loginData) throws WrongLoginException, WrongPasswordException {
+public class ValidatorService {
+    private void privateCheck(LoginData loginData) throws WrongLoginException, WrongPasswordException {
         if (!loginData.getLogin().matches("\\w{1,20}")) {
             throw new WrongLoginException("Неверный логин");
         }
@@ -24,7 +24,7 @@ public class Validator {
         }
     }
 
-    public static boolean check(LoginData loginData) {
+    public boolean check(LoginData loginData) {
         try {
             privateCheck(loginData);
         } catch (WrongLoginException | WrongPasswordException e) {

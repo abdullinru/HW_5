@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ValidateController {
-    private final Validator validator;
+    private final ValidatorService validatorService;
 
-    public ValidateController(Validator validator) {
-        this.validator = validator;
+    public ValidateController(ValidatorService validatorService) {
+        this.validatorService = validatorService;
     }
 @GetMapping
     public boolean Proverka(@RequestParam String login, String pass, String confirmPass) {
         LoginData loginData = new LoginData(login, pass, confirmPass);
-        return Validator.check(loginData);
+        return validatorService.check(loginData);
 
 
     }
